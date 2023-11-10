@@ -8,8 +8,8 @@ import { PlotlyService } from '../plotly.service';
 export class PlotlyComponentComponent implements OnInit {
 constructor(private plot:PlotlyService) { }
 ngOnInit(): void {
-let values1: [1, 2, 3, 4];
-let values2: [10, 11, 12, 13];
-    this.plot.plotLine("Pie Chart Plot","piechart",values1,values2);
+    let x:number[] = [1,2,3,4,5];
+    let y:number[] = [1,2,3,4,5];
+    this.plot.plotLine("Line Plot","plot",x,y);
   }
 }

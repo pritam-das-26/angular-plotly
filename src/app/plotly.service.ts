@@ -4,28 +4,32 @@ declare let Plotly: any;
   providedIn: 'root'
 })
 export class PlotlyService {
-constructor() {}
-plotLine(title: string, plotDiv: string, x:number[], y: number[]){           
-  var trace1 = {
-    x:x,
-    y:y,
-    mode: 'markers',
-    marker: {
-      size: [40, 60, 80, 100]
-    }
-  };
-  
-  var data = [trace1];
-  
-  var layout = {
-    title: 'Marker Size',
-    showlegend: false,
-    height: 600,
-    width: 600
-  };
-  
-  Plotly.newPlot('plot', data, layout);
-    
-}
+constructor() { }
+plotLine(title: string, plotDiv: string, x:number[], y:number[]){           
+    let trace = {
+      x: x,    
+      y: y,   
+      mode: 'markers',
+      marker: {
+        color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
+        opacity: [1, 0.8, 0.6, 0.4],
+        size: [40, 60, 80, 100]
+      }
+    };
 
+    var data=[trace];
+                  
+    let layout = {
+      title:title,
+      showlegend: true,
+      responsive: true,
+      useResizeHandler: true,
+      autosize: true,
+      width: '100%',
+      height: '100%'
+
+    };
+    
+    Plotly.newPlot(plotDiv,data, layout);     
+  }
 }
