@@ -19,7 +19,7 @@ plotLine(title: string, plotDiv: string, x:number[], y:number[]){
 
     var data=[trace];
                   
-    let layout = {
+    let layouts = {
       title:title,
       showlegend: true,
       responsive: true,
@@ -29,7 +29,23 @@ plotLine(title: string, plotDiv: string, x:number[], y:number[]){
       height: '100%'
 
     };
+    Plotly.newPlot(plotDiv,data, layouts);   
+  }  
     
-    Plotly.newPlot(plotDiv,data, layout);     
-  }
+    plotPie(title: string, plotDiv: string, x: number[]) {
+      let trace2 = {
+        values: x,
+       labels: ['Category A', 'Category B', 'Category C'],
+        type: 'pie'
+      };
+      var data2=[trace2];
+      var layout = {
+        height: 400,
+        width: 500
+      };
+    
+      Plotly.newPlot(plotDiv, data2, layout);
+    }
+    
+
 }
